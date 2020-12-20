@@ -13,7 +13,6 @@ var letterLower=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p'
 var letterUpper=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 var specialchar=['!','?','#','$','&','*','+','/',';','-','~'];
 //contains everything you need based on userinput
-//prebuilt. length
 var isNum;
 var userLength;
 
@@ -22,6 +21,7 @@ var confirmnumArr;
 var confirmlowerLetter;
 var confirmletterUpper;
 var confirmspecialchar;
+var confirmuserLenght;
 
 //function generatePassword returns the finalpassword
 function generatePassword(){
@@ -39,7 +39,7 @@ function generatePassword(){
   var confirmletterLower = (window.confirm("Would you like to include lower caser letters in your password?"));
   var confirmletterUpper = (window.confirm("Woudl you like to include upper case letters in your password"));
   var confirmspecialchar = (window.confirm("Would you like to include special characters in your password"));
-  }
+    }
   //length of at least 8 characters and no more than 128 characters //(while loop)
     userLength= prompt("How many characters would you like your passwrod to be?")
   //check userlength when is less than 8 or greater that 128
@@ -48,9 +48,10 @@ function generatePassword(){
       userLength= prompt("How many characters would you like your password to be?")
     }
   
-  //lowercase, 
+ var password = [];
+    //lowercase, 
     if(letterLower){
-      password = password.concat(lowerLetter);
+      password = password.concat(letterLower);
     }
   //uppercase
     if(letterUpper){
@@ -65,7 +66,6 @@ function generatePassword(){
       password = password.concat(numArr);
     }
 
-    consoul.log(password)
 
 //we need to build that masterarray based on the yes
 
@@ -84,15 +84,17 @@ function generatePassword(){
 }
 
 
-// Write password to the #password input
-function writePassword() {
-  //return something and store it to the variable password
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  // Write password to the #password input
+  function writePassword() {
+    //return something and store it to the variable password
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+    passwordText.value = password;
 
-}
+  }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+  // Add event listener to generate buttons
+  document.getElementById("generatepassword").innterHTML = createPassword;
+
+  // generateBtn.addEventListener("password", writePassword);
