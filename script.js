@@ -27,7 +27,16 @@ function generatePassword(){
   var confirmletterLower = (window.confirm("Would you like to include lower caser letters in your password?"));
   var confirmletterUpper = (window.confirm("Woudl you like to include upper case letters in your password"));
   var confirmspecialchar = (window.confirm("Would you like to include special characters in your password"));
-  
+
+//Users must choose at least one of the criterias so loop if they choose none
+while (confirmletterLower == false && confirmletterUpper == false && confirmnumArr == false && confirmspecialchar == false) {
+  window.alert("You will need to slect one of the criteria to generate a password");
+  //ask the criteria questions again
+  var confirmnumArr = (window.confirm("Would you like numbers included in your password?"));
+  var confirmletterLower = (window.confirm("Would you like to include lower caser letters in your password?"));
+  var confirmletterUpper = (window.confirm("Woudl you like to include upper case letters in your password"));
+  var confirmspecialchar = (window.confirm("Would you like to include special characters in your password"));
+}
 //length of at least 8 characters and no more than 128 characters //(while loop)
   userLength= prompt("How many characters would you like your passwrod to be?")
   //check userlength when is less than 8 or greater that 128
@@ -37,6 +46,7 @@ function generatePassword(){
   }
   //parseInt()
 //lowercase, 
+if(lowerLetter)
 //uppercase, 
 //numeric,
 isNum= confirm("would you like numbers?")
