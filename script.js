@@ -1,3 +1,6 @@
+//Refrence: 
+  //If Statements: https://www.w3schools.com/js/js_if_else.asp
+  //Math.floor/random: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 // Assignment code here
 
 
@@ -28,48 +31,57 @@ function generatePassword(){
   var confirmletterUpper = (window.confirm("Woudl you like to include upper case letters in your password"));
   var confirmspecialchar = (window.confirm("Would you like to include special characters in your password"));
 
-//Users must choose at least one of the criterias so loop if they choose none
-while (confirmletterLower == false && confirmletterUpper == false && confirmnumArr == false && confirmspecialchar == false) {
+  //Users must choose at least one of the criterias so loop if they choose none
+    while (confirmletterLower == false && confirmletterUpper == false && confirmnumArr == false && confirmspecialchar == false) {
   window.alert("You will need to slect one of the criteria to generate a password");
   //ask the criteria questions again
   var confirmnumArr = (window.confirm("Would you like numbers included in your password?"));
   var confirmletterLower = (window.confirm("Would you like to include lower caser letters in your password?"));
   var confirmletterUpper = (window.confirm("Woudl you like to include upper case letters in your password"));
   var confirmspecialchar = (window.confirm("Would you like to include special characters in your password"));
-}
-//length of at least 8 characters and no more than 128 characters //(while loop)
-  userLength= prompt("How many characters would you like your passwrod to be?")
-  //check userlength when is less than 8 or greater that 128
-  if(parseInt(userLength)<8 || userLength>128){
-    //if user doesn't fit criteria then ask again 
-    userLength= prompt("How many characters would you like your password to be?")
   }
-  //parseInt()
-//lowercase, 
-if(lowerLetter)
-//uppercase, 
-//numeric,
-isNum= confirm("would you like numbers?")
-//special characters
+  //length of at least 8 characters and no more than 128 characters //(while loop)
+    userLength= prompt("How many characters would you like your passwrod to be?")
+  //check userlength when is less than 8 or greater that 128
+    if(parseInt(userLength)<8 || userLength>128){
+      //if user doesn't fit criteria then ask again 
+      userLength= prompt("How many characters would you like your password to be?")
+    }
+  
+  //lowercase, 
+    if(letterLower){
+      password = password.concat(lowerLetter);
+    }
+  //uppercase
+    if(letterUpper){
+      password = password.concat(letterUpper);
+    } 
+  //numeric,
+    if(numArr){
+      password = password.concat(numArr);
+    }
+  //special characters
+    if(specialchar){
+      password = password.concat(numArr);
+    }
+
+    consoul.log(password)
 
 //we need to build that masterarray based on the yes
 
-if(isNum==true){
-  for(var i=0;i<numArr.length;i++)
-  masterArray.push(numArr[i])
-}
-if ()
+    if(isNum==true){
+      for(var i=0;i<numArr.length;i++)
+      masterArray.push(numArr[i])
+    }
+
 //generate password
-//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-//randomly assign values based on userinput and the length will be dependent of the user (for loop)
-//math.ran math floor (check generator code from class)
-
-//when we create our pw.. here is validation for it (LATER)
-  //validated and at least one character type should be selected
-//once pw is finished  password is  displayed to the page
-  return pw;
+  var ranpassword = ""
+    for (var i = 0; i < confirmuserLenght; i++) {
+      ranpassword = ranpassword + password[Math.floor(Math.random() * password.length)];
+      console.log(ranpassword)
+    }
+  return ranpassword;
 }
-
 
 
 // Write password to the #password input
