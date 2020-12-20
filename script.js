@@ -1,6 +1,7 @@
 //Refrence: 
   //If Statements: https://www.w3schools.com/js/js_if_else.asp
   //Math.floor/random: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+  //Code: https://github.com/alirueter/password-generator
 // Assignment code here
 
 
@@ -45,7 +46,7 @@ function generatePassword(){
   //check userlength when is less than 8 or greater that 128
     if(parseInt(userLength)<8 || userLength>128){
       //if user doesn't fit criteria then ask again 
-      userLength= prompt("How many characters would you like your password to be?")
+      userLength= prompt("Your password will need to be between 8 and 128 characters?")
     }
   
  var password = [];
@@ -65,22 +66,25 @@ function generatePassword(){
     if(specialchar){
       password = password.concat(numArr);
     }
+    console.log(masterArray);
+for (var i=0; i < userLength; i++) {
+  masterArray.push(password[Math.floor(Math.random() * password.length)]);
+}
+return masterArray.join("");
+// //we need to build that masterarray based on the yes
 
+//     if(isNum==true){
+//       for(var i=0;i<numArr.length;i++)
+//       masterArray.push(numArr[i])
+//     }
 
-//we need to build that masterarray based on the yes
-
-    if(isNum==true){
-      for(var i=0;i<numArr.length;i++)
-      masterArray.push(numArr[i])
-    }
-
-//generate password
-  var ranpassword = ""
-    for (var i = 0; i < confirmuserLenght; i++) {
-      ranpassword = ranpassword + password[Math.floor(Math.random() * password.length)];
-      console.log(ranpassword)
-    }
-  return ranpassword;
+// //generate password
+//   var ranpassword = ""
+//     for (var i = 0; i < confirmuserLenght; i++) {
+//       ranpassword = ranpassword + password[Math.floor(Math.random() * password.length)];
+//       console.log(ranpassword)
+//     }
+//   return ranpassword;
 }
 
 
@@ -88,6 +92,7 @@ function generatePassword(){
   function writePassword() {
     //return something and store it to the variable password
     var password = generatePassword();
+    console.log(password);
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
@@ -95,6 +100,6 @@ function generatePassword(){
   }
 
   // Add event listener to generate buttons
-  document.getElementById("generatepassword").innterHTML = createPassword;
+  // document.getElementById("generatepassword").innterHTML = createPassword;
 
-  // generateBtn.addEventListener("password", writePassword);
+  generateBtn.addEventListener("click", writePassword);
